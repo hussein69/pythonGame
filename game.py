@@ -20,10 +20,11 @@ def bags():
 
 
 def imageShow(image, message, window_name):
-    print(message)
-    cv2.imshow(window_name, image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    if bag1 == 0 and bag2 == 0 and bag3 == 0:
+        print(message)
+        cv2.imshow(window_name, image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
 
 while bag1 != 0 or bag2 != 0 or bag3 != 0:
@@ -64,9 +65,8 @@ while bag1 != 0 or bag2 != 0 or bag3 != 0:
     print("You took:", objectRemove, "objects from bag:", bagSelection)
 
     print(bag1, bag2, bag3, "\n")
-    if bag1 == 0 and bag2 == 0 and bag3 == 0:
-        imageShow(img1, "Congrats you won!", "YOU WIN!")
-        break
+
+    imageShow(img1, "Congrats you won!", "YOU WIN!")
 
     bagSelection = random.randint(1, 3)
     objectRemove = random.randint(1, 5)
@@ -87,6 +87,4 @@ while bag1 != 0 or bag2 != 0 or bag3 != 0:
 
     print("Computer took:", objectRemove, "objects from bag:", bagSelection)
     print(bag1, bag2, bag3, "\n")
-    if bag1 == 0 and bag2 == 0 and bag3 == 0:
-        imageShow(img2, "you lost.", "GAME OVER!")
-        break
+    imageShow(img2, "you lost.", "GAME OVER!")
